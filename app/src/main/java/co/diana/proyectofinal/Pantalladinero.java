@@ -4,9 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.UUID;
 
 public class Pantalladinero extends AppCompatActivity {
 
@@ -17,7 +23,10 @@ public class Pantalladinero extends AppCompatActivity {
     private EditText editTextfecha2;
     private EditText editTextcvc;
     private TextView Dineromonto;
-    private Bundle bundle=getIntent().getExtras();
+    private String tipo;
+    private Intent intent;
+    private int monto;
+    private FirebaseDatabase database;
 
 
 
@@ -26,7 +35,10 @@ public class Pantalladinero extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalladinero);
 
-        int monto=bundle.getInt("monto",0);
+
+
+        database=FirebaseDatabase.getInstance();
+        intent=getIntent();
         Donar=findViewById(R.id.Donar);
         editTextNombre=findViewById(R.id.editTextNombre);
         editTextNumero=findViewById(R.id.editTextNumero);
@@ -34,13 +46,25 @@ public class Pantalladinero extends AppCompatActivity {
         editTextfecha2=findViewById(R.id.editTextfecha2);
         editTextcvc=findViewById(R.id.editTextcvc);
         Dineromonto=findViewById(R.id.Dineromonto);
+        monto=intent.getIntExtra("monto",0);
+        Dineromonto.setText(String.valueOf(monto));
+        Log.e("TAG", String.valueOf(monto));
+        tipo=intent.getStringExtra("tipo");
 
-        Dineromonto.setText(monto);
 
         Donar.setOnClickListener(
                 (v)->{
-                    Intent intent= new Intent(this,Pantalladonacionrealizada.class);
-                    startActivity(intent);
+                    if (editTextcvc.getText().toString().isEmpty()||editTextfecha1.getText().toString().isEmpty()||editTextfecha2.getText().toString().isEmpty()||editTextNombre.getText().toString().isEmpty()||editTextNumero.getText().toString().isEmpty()){
+                        Toast.makeText(this, "Por favor rellene todos los campos", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        String id= UUID.randomUUID().toString();
+                        Dinero dinero= new Dinero("1234",editTextNombre.getText().toString(),id, tipo,monto,"","pendiente");
+                        database.getReference().child("donaciones").child(tipo+"/"+id).setValue(dinero);
+                        Intent intent= new Intent(this,Pantalladonacionrealizada.class);
+                        startActivity(intent);
+                    }
+
 
                 }
         );

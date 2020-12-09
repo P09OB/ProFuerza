@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,6 +14,7 @@ public class Pantalladonar extends AppCompatActivity {
 
     private EditText editTextmonto;
     private Button Donar;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,9 @@ public class Pantalladonar extends AppCompatActivity {
 
         Donar=findViewById(R.id.Donar);
         editTextmonto=findViewById(R.id.editTextmonto);
+        intent=getIntent();
+        String tipo=intent.getStringExtra("tipo");
+        Log.e("TAG", tipo );
 
 
         Donar.setOnClickListener(
@@ -30,8 +35,12 @@ public class Pantalladonar extends AppCompatActivity {
                     }
                     else {
                         Intent intent = new Intent(this, Pantalladinero.class);
-                        intent.putExtra("monto", Integer.parseInt(editTextmonto.getText().toString()));
-                        startActivity(intent);
+                        int monto=Integer.parseInt(editTextmonto.getText().toString());
+                       // Log.e("TAG", String.valueOf(monto));
+                       intent.putExtra("monto", monto);
+                       intent.putExtra("tipo",tipo);
+                       // Log.e("TAG", String.valueOf(Integer.parseInt(editTextmonto.getText().toString())));
+                       startActivity(intent);
                     }
 
                 }

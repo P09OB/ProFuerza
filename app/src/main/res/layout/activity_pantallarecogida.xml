@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.418" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName20"
+        android:id="@+id/editTextMes"
         android:layout_width="120dp"
         android:layout_height="61dp"
         android:layout_marginTop="10dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName19"
+        android:id="@+id/editTextDia"
         android:layout_width="80dp"
         android:layout_height="61dp"
         android:layout_marginTop="10dp"
@@ -66,10 +66,10 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName17" />
+        app:layout_constraintTop_toBottomOf="@+id/editTexthora" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName17"
+        android:id="@+id/editTexthora"
         android:layout_width="80dp"
         android:layout_height="61dp"
         android:layout_marginTop="10dp"
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName18"
+        android:id="@+id/editTexthoramin"
         android:layout_width="80dp"
         android:layout_height="61dp"
         android:layout_marginTop="10dp"
@@ -114,10 +114,10 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName16" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDireccion" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName16"
+        android:id="@+id/editTextDireccion"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"

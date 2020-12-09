@@ -7,17 +7,27 @@ public class Donacion {
     protected int cantidad;
     protected String direccion;
     protected String estado;
+    protected String nombre;
 
-    public Donacion(String idusuario, String id, String tipo, int cantidad, String direccion, String estado) {
+    public Donacion(String idusuario,String nombre, String id, String tipo, int cantidad, String direccion, String estado) {
         this.idusuario = idusuario;
         this.id = id;
         Tipo = tipo;
         this.cantidad = cantidad;
         this.direccion = direccion;
         this.estado = estado;
+        this.nombre=nombre;
     }
     public Donacion(){
 
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getIdusuario() {

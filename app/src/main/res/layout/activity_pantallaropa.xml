@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName10"
+        android:id="@+id/editText4"
         android:layout_width="39dp"
         android:layout_height="34dp"
         android:layout_marginStart="45dp"
@@ -50,8 +50,8 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+        app:layout_constraintStart_toEndOf="@+id/checkBox1"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
     <CheckBox
         android:id="@+id/checkBox3"
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName9"
+        android:id="@+id/editText3"
         android:layout_width="39dp"
         android:layout_height="34dp"
         android:layout_marginStart="45dp"
@@ -82,8 +82,8 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+        app:layout_constraintStart_toEndOf="@+id/checkBox1"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <CheckBox
         android:id="@+id/checkBox2"
@@ -99,10 +99,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox1" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/editText2"
         android:layout_width="39dp"
         android:layout_height="34dp"
         android:layout_marginStart="45dp"
@@ -114,11 +114,11 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+        app:layout_constraintStart_toEndOf="@+id/checkBox1"
+        app:layout_constraintTop_toBottomOf="@+id/editText1" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/editText1"
         android:layout_width="39dp"
         android:layout_height="34dp"
         android:layout_marginStart="40dp"
@@ -129,7 +129,7 @@
         android:inputType="textPersonName"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
+        app:layout_constraintStart_toEndOf="@+id/checkBox1"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
     <TextView
@@ -210,7 +210,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"

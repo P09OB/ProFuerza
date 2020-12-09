@@ -28,6 +28,7 @@ public class PantalladeContribuir extends AppCompatActivity {
         Educacion.setOnClickListener(
                 (v)->{
                     Intent intent= new Intent(this,Pantalladonar.class);
+                    intent.putExtra("tipo","Educacion");
                     startActivity(intent);
 
                 }
@@ -36,6 +37,7 @@ public class PantalladeContribuir extends AppCompatActivity {
         Alimentacion.setOnClickListener(
                 (v)->{
                     Intent intent= new Intent(this,Pantalladonar.class);
+                    intent.putExtra("tipo","Alimentacion");
                     startActivity(intent);
 
                 }
@@ -44,6 +46,7 @@ public class PantalladeContribuir extends AppCompatActivity {
         Medicamentos.setOnClickListener(
                 (v)->{
                     Intent intent= new Intent(this,Pantalladonar.class);
+                    intent.putExtra("tipo","Medicamentos");
                     startActivity(intent);
 
                 }
@@ -52,6 +55,7 @@ public class PantalladeContribuir extends AppCompatActivity {
         Infraestructura.setOnClickListener(
                 (v)->{
                     Intent intent= new Intent(this,Pantalladonar.class);
+                    intent.putExtra("tipo","Infraestructura");
                     startActivity(intent);
 
                 }
