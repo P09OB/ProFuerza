@@ -1,6 +1,7 @@
 package co.diana.proyectofinal.pantallas;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import co.diana.proyectofinal.R;
 
 public class Servicios extends AppCompatActivity implements View.OnClickListener{
 
-    private Button button1,button2,button3,button4;
+    private ConstraintLayout reparacion, limpieza, varios, exterior;
 
 
     @Override
@@ -19,15 +20,15 @@ public class Servicios extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicios);
 
-        button1 = findViewById(R.id.button1);
-        button2 = findViewById(R.id.button2);
-        button3 = findViewById(R.id.button3);
-        button4 = findViewById(R.id.button4);
+        reparacion = findViewById(R.id.reparacion);
+        limpieza = findViewById(R.id.limpieza);
+        varios = findViewById(R.id.varios);
+        exterior = findViewById(R.id.exterior);
 
-        button1.setOnClickListener(this);
-        button2.setOnClickListener(this);
-        button3.setOnClickListener(this);
-        button4.setOnClickListener(this);
+        reparacion.setOnClickListener(this);
+        limpieza.setOnClickListener(this);
+        varios.setOnClickListener(this);
+        exterior.setOnClickListener(this);
     }
 
     @Override
@@ -38,7 +39,7 @@ public class Servicios extends AppCompatActivity implements View.OnClickListener
 
         switch (view.getId()){
 
-            case R.id.button1:
+            case R.id.reparacion:
 
                 i.putExtra("service","reparacion");
 
@@ -46,21 +47,21 @@ public class Servicios extends AppCompatActivity implements View.OnClickListener
 
                 break;
 
-            case R.id.button2:
+            case R.id.varios:
 
                 i.putExtra("service","varios");
 
 
                 break;
 
-            case  R.id.button3:
+            case  R.id.limpieza:
 
                 i.putExtra("service","limpieza");
 
 
                 break;
 
-            case R.id.button4:
+            case R.id.exterior:
 
                 i.putExtra("service","exteriores");
 
