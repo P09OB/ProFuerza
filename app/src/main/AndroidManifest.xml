@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".pantallas.cambioContrasenna"></activity>
+        <activity android:name=".pantallas.donacionesRecogidas"></activity>
+        <activity android:name=".pantallas.notificaciones" />
+        <activity android:name=".pantallausuario" />
+        <activity android:name=".pantallas.cambioContrasenna" />
         <activity android:name=".pantallas.intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +34,7 @@
         <activity android:name=".Pantalladonar" />
         <activity android:name=".PantalladeContribuir" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".pantallas.Inicio"></activity>
+        <activity android:name=".pantallas.Inicio" />
     </application>
 
 </manifest>

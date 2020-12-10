@@ -1,58 +1,50 @@
 package co.diana.proyectofinal;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import co.diana.proyectofinal.pantallas.Servicios;
 import co.diana.proyectofinal.pantallas.donacionesRecogidas;
 
-public class Pantalladiferentesdonaciones extends AppCompatActivity implements View.OnClickListener {
+public class pantallausuario extends AppCompatActivity implements View.OnClickListener{
 
-    private ConstraintLayout Dinero;
-    private ConstraintLayout Ropa;
-    private ImageView servicioButton, donacionButton, recogerButton, perfilButton, homeButton;
+    private TextView name;
+    private String nombreEmployee,correo;
+    private ImageView servicioButton, donacionButton, recogerButton, homeButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalladiferentesdonaciones);
+        setContentView(R.layout.activity_pantallausuario);
 
-        Dinero= findViewById(R.id.Dinero);
-        Ropa= findViewById(R.id.Ropa);
+        name = findViewById(R.id.nameUser);
 
         servicioButton = findViewById(R.id.serviciobutton);
         donacionButton = findViewById(R.id.donacionbutton);
         recogerButton = findViewById(R.id.recolectarbutton);
-        perfilButton = findViewById(R.id.perfilbutton);
         homeButton = findViewById(R.id.homeButton);
 
         servicioButton.setOnClickListener(this);
         donacionButton.setOnClickListener(this);
         recogerButton.setOnClickListener(this);
-        perfilButton.setOnClickListener(this);
         homeButton.setOnClickListener(this);
 
-        Dinero.setOnClickListener(
-                (v)->{
-                    Intent intent= new Intent(this,PantalladeContribuir.class);
-                    startActivity(intent);
 
-                }
-        );
+        SharedPreferences pre = getSharedPreferences("Casillero", Context.MODE_PRIVATE);
+        nombreEmployee = pre.getString("nameUser", "NO_USER");
+        correo = pre.getString("correo","NO_CORREO");
 
-        Ropa.setOnClickListener(
-                (v)->{
-                    Intent intent= new Intent(this, Pantallaropa.class);
-                    startActivity(intent);
+        name.setText(nombreEmployee);
 
-                }
-        );
     }
 
     @Override
@@ -76,6 +68,12 @@ public class Pantalladiferentesdonaciones extends AppCompatActivity implements V
 
                 break;
 
+            case R.id.donacionbutton:
+
+                Intent d = new Intent(this, Pantalladiferentesdonaciones.class);
+                startActivity(d);
+                finish();
+                break;
 
             case R.id.recolectarbutton:
 
@@ -84,14 +82,7 @@ public class Pantalladiferentesdonaciones extends AppCompatActivity implements V
                 finish();
                 break;
 
-            case R.id.perfilbutton:
-
-                Intent p = new Intent(this, pantallausuario.class);
-                startActivity(p);
-                finish();
-                break;
 
         }
-
     }
 }

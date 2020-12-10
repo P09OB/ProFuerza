@@ -1,30 +1,25 @@
-package co.diana.proyectofinal;
+package co.diana.proyectofinal.pantallas;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import co.diana.proyectofinal.pantallas.Servicios;
-import co.diana.proyectofinal.pantallas.donacionesRecogidas;
+import co.diana.proyectofinal.MainActivity;
+import co.diana.proyectofinal.Pantalladiferentesdonaciones;
+import co.diana.proyectofinal.R;
+import co.diana.proyectofinal.pantallausuario;
 
-public class Pantalladiferentesdonaciones extends AppCompatActivity implements View.OnClickListener {
+public class notificaciones extends AppCompatActivity implements View.OnClickListener {
 
-    private ConstraintLayout Dinero;
-    private ConstraintLayout Ropa;
     private ImageView servicioButton, donacionButton, recogerButton, perfilButton, homeButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalladiferentesdonaciones);
-
-        Dinero= findViewById(R.id.Dinero);
-        Ropa= findViewById(R.id.Ropa);
+        setContentView(R.layout.activity_notificaciones);
 
         servicioButton = findViewById(R.id.serviciobutton);
         donacionButton = findViewById(R.id.donacionbutton);
@@ -38,21 +33,6 @@ public class Pantalladiferentesdonaciones extends AppCompatActivity implements V
         perfilButton.setOnClickListener(this);
         homeButton.setOnClickListener(this);
 
-        Dinero.setOnClickListener(
-                (v)->{
-                    Intent intent= new Intent(this,PantalladeContribuir.class);
-                    startActivity(intent);
-
-                }
-        );
-
-        Ropa.setOnClickListener(
-                (v)->{
-                    Intent intent= new Intent(this, Pantallaropa.class);
-                    startActivity(intent);
-
-                }
-        );
     }
 
     @Override
@@ -70,12 +50,18 @@ public class Pantalladiferentesdonaciones extends AppCompatActivity implements V
 
             case R.id.serviciobutton:
 
-                Intent s = new Intent(this, Servicios.class);
+                Intent s = new Intent(this,Servicios.class);
                 startActivity(s);
                 finish();
 
                 break;
 
+            case R.id.donacionbutton:
+
+                Intent d = new Intent(this, Pantalladiferentesdonaciones.class);
+                startActivity(d);
+                finish();
+                break;
 
             case R.id.recolectarbutton:
 
@@ -92,6 +78,5 @@ public class Pantalladiferentesdonaciones extends AppCompatActivity implements V
                 break;
 
         }
-
     }
 }

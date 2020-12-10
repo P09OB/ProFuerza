@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +17,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.UUID;
 
-public class Pantalladinero extends AppCompatActivity {
+import co.diana.proyectofinal.pantallas.Servicios;
+import co.diana.proyectofinal.pantallas.donacionesRecogidas;
+
+public class Pantalladinero extends AppCompatActivity implements View.OnClickListener {
 
     private Button Donar;
     private EditText editTextNombre;
@@ -29,6 +34,8 @@ public class Pantalladinero extends AppCompatActivity {
     private int monto;
     private FirebaseDatabase database;
     private FirebaseAuth auth;
+    private ImageView servicioButton, recogerButton, perfilButton, homeButton;
+
 
 
 
@@ -36,6 +43,17 @@ public class Pantalladinero extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalladinero);
+
+        servicioButton = findViewById(R.id.serviciobutton);
+        recogerButton = findViewById(R.id.recolectarbutton);
+        perfilButton = findViewById(R.id.perfilbutton);
+        homeButton = findViewById(R.id.homeButton);
+
+        servicioButton.setOnClickListener(this);
+
+        recogerButton.setOnClickListener(this);
+        perfilButton.setOnClickListener(this);
+        homeButton.setOnClickListener(this);
 
 
         auth=FirebaseAuth.getInstance();
@@ -70,5 +88,43 @@ public class Pantalladinero extends AppCompatActivity {
 
                 }
         );
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+
+            case R.id.homeButton:
+
+                Intent h = new Intent(this, MainActivity.class);
+                startActivity(h);
+                finish();
+
+                break;
+
+            case R.id.serviciobutton:
+
+                Intent s = new Intent(this, Servicios.class);
+                startActivity(s);
+                finish();
+
+                break;
+
+
+            case R.id.recolectarbutton:
+
+                Intent r = new Intent(this, donacionesRecogidas.class);
+                startActivity(r);
+                finish();
+                break;
+
+            case R.id.perfilbutton:
+
+                Intent p = new Intent(this, pantallausuario.class);
+                startActivity(p);
+                finish();
+                break;
+
+        }
     }
 }
