@@ -60,7 +60,7 @@ public class Pantalladinero extends AppCompatActivity {
                     else{
                         String id= UUID.randomUUID().toString();
                         Dinero dinero= new Dinero("1234",editTextNombre.getText().toString(),id, tipo,monto,"","pendiente");
-                        database.getReference().child("donaciones").child(tipo+"/"+id).setValue(dinero);
+                        database.getReference().child("donaciones").child("dinero").child(tipo+"/"+id).setValue(dinero);
                         Intent intent= new Intent(this,Pantalladonacionrealizada.class);
                         startActivity(intent);
                     }

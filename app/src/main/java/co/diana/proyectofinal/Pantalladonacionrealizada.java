@@ -19,7 +19,7 @@ public class Pantalladonacionrealizada extends AppCompatActivity {
 
         Aceptar.setOnClickListener(
                 (v)->{
-                    Intent intent= new Intent(this, Pantallaprincipaldonacion.class);
+                    Intent intent= new Intent(this, MainActivity.class);
                     startActivity(intent);
 
                 }
