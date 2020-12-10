@@ -71,7 +71,7 @@
         android:id="@+id/buttonEmployee"
         android:layout_width="72.71dp"
         android:layout_height="25dp"
-        android:background="@drawable/botonverde"
+        android:background="@drawable/cuadrohora"
         android:text="Solicitar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

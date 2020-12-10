@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,13 +28,14 @@ import co.diana.proyectofinal.R;
 
 public class InfoEmployee extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
-    private TextView name, description, total, price;
-    private EditText address, hours;
+    private TextView name, description, total, precio;
+    private EditText address, diaText;
     private Button solicitar;
-    private Spinner listHours;
+    private Spinner listHours,spinnerMeses;
     private int valorTotal, priceE;
     private String idEmployee, numberHours,nombreEmployee;
     private String idUser, nameUser,direccion, servicio;
+    private String fecha, mes, dia;
     private FirebaseDatabase db;
 
     @Override
@@ -43,11 +45,14 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
 
         name = findViewById(R.id.name);
         description = findViewById(R.id.description);
+        precio = findViewById(R.id.precio);
         total = findViewById(R.id.total);
-        price = findViewById(R.id.price);
+        diaText = findViewById(R.id.editdia);
+
         address = findViewById(R.id.address);
-        hours = findViewById(R.id.hours);
+
         listHours = findViewById(R.id.spinnerList);
+        spinnerMeses = findViewById(R.id.spinnerMeses);
         solicitar = findViewById(R.id.buttonSolicitar);
 
         db = FirebaseDatabase.getInstance();
@@ -55,13 +60,13 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
 
         solicitar.setOnClickListener(this);
 
-
-
-
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.lista, android.R.layout.simple_list_item_1);
         listHours.setAdapter(adapter);
         listHours.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.meses, android.R.layout.simple_list_item_1);
+        spinnerMeses.setAdapter(adapter2);
+        spinnerMeses.setOnItemSelectedListener(this);
 
 
         SharedPreferences pre = getSharedPreferences("Casillero", Context.MODE_PRIVATE);
@@ -73,18 +78,9 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
         servicio = pre.getString("servicio","NO_SERVICIO");
 
 
-
-
-
+        precio.setText("X $ "+priceE);
         name.setText(nombreEmployee);
-        //description.setText(price);
-        price.setText(priceE + "");
-
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("d");
-        String fecha = sdf.format(date);
-
-        Log.e("fecha",""+fecha);
+        description.setText(servicio);
 
 
     }
@@ -93,30 +89,42 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
     public void onClick(View view) {
 
         direccion = address.getText().toString();
+        dia = diaText.getText().toString();
 
-        String id = db.getReference().child("solicitudes").child(idUser).push().getKey();
-        DatabaseReference ref = db.getReference().child("solicitudes").child(idUser).child("EnEspera").child(id);
-        Solicitud sol = new Solicitud(
-                nombreEmployee,
-                idEmployee,
-                servicio,
-                idUser,
-                nameUser,
-                direccion,
-                "Mie/09/Dic/2020",
-                "8:00Am",
-                numberHours,
-                valorTotal
+        if(direccion.equals("")|| dia.equals("")|| mes.equals("") || numberHours.equals(0) || valorTotal <=0 ){
+
+            Toast.makeText(this,"Verifique que todos los campos sean correctos",Toast.LENGTH_LONG).show();
+
+        } else {
+
+            fecha = dia+"/"+mes;
+
+            String id = db.getReference().child("solicitudes").child(idUser).push().getKey();
+            DatabaseReference ref = db.getReference().child("solicitudes").child(idUser).child("EnEspera").child(id);
+            Solicitud sol = new Solicitud(
+                    nombreEmployee,
+                    idEmployee,
+                    servicio,
+                    idUser,
+                    nameUser,
+                    direccion,
+                    fecha,
+                    "8:00Am",
+                    numberHours,
+                    valorTotal
 
 
 
 
-        );
+            );
 
-        ref.setValue(sol);
+            ref.setValue(sol);
 
-        Intent i = new Intent(this, solicitudRealizada.class);
-        startActivity(i);
+            Intent i = new Intent(this, solicitudRealizada.class);
+            startActivity(i);
+
+
+        }
 
 
     }
@@ -124,71 +132,121 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-        switch (i) {
+        switch (adapterView.getId()){
 
-            case 1:
-                valorTotal = priceE;
-                numberHours = 1+"";
-                total.setText(valorTotal + "");
+            case R.id.spinnerList:
+
+                switch (i) {
+
+                    case 0:
+
+                        valorTotal = 0;
+                        numberHours= 0+"";
+
+                        break;
+
+                    case 1:
+                        valorTotal = priceE;
+                        numberHours = 1+"";
+                        total.setText(valorTotal + "");
+
+                        break;
+
+                    case 2:
+
+                        valorTotal = priceE * 2;
+                        numberHours = 2+"";
+                        total.setText(valorTotal + "");
+                        break;
+
+                    case 3:
+
+                        valorTotal = priceE * 3;
+                        numberHours = 3+"";
+                        total.setText(valorTotal + "");
+
+
+                        break;
+
+                    case 4:
+
+                        valorTotal = priceE * 4;
+                        numberHours = 4+"";
+                        total.setText(valorTotal + "");
+
+
+                        break;
+
+                    case 5:
+                        valorTotal = priceE * 5;
+                        numberHours = 5+"";
+                        total.setText(valorTotal + "");
+
+                        break;
+
+                    case 6:
+                        valorTotal = priceE * 6;
+                        numberHours = 6+"";
+                        total.setText(valorTotal + "");
+
+
+                        break;
+
+                    case 7:
+                        valorTotal = priceE * 7;
+                        numberHours = 7+"";
+                        total.setText(valorTotal + "");
+
+
+                        break;
+
+                    case 8:
+                        valorTotal = priceE * 8;
+                        numberHours = 8+"";
+                        total.setText(valorTotal + "");
+
+
+                        break;
+
+                }
+
                 break;
 
-            case 2:
+            case R.id.spinnerMeses:
 
-                valorTotal = priceE * 2;
-                numberHours = 2+"";
-                total.setText(valorTotal + "");
+                switch (i) {
+
+                    case 0:
+
+                        mes = "";
+
+
+                     break;
+
+                    case 1:
+                        mes = "Diciembre";
+
+                        break;
+
+                    case 2:
+
+                        mes = "Enero";
+
+
+                        break;
+
+                    case 3:
+
+                        mes = "Febrero";
+
+
+                        break;
+
+                }
                 break;
-
-            case 3:
-
-                valorTotal = priceE * 3;
-                numberHours = 3+"";
-                total.setText(valorTotal + "");
-
-
-                break;
-
-            case 4:
-
-                valorTotal = priceE * 4;
-                numberHours = 4+"";
-                total.setText(valorTotal + "");
-
-
-                break;
-
-            case 5:
-                valorTotal = priceE * 5;
-                numberHours = 5+"";
-                total.setText(valorTotal + "");
-
-                break;
-
-            case 6:
-                valorTotal = priceE * 6;
-                numberHours = 6+"";
-                total.setText(valorTotal + "");
-
-
-                break;
-
-            case 7:
-                valorTotal = priceE * 7;
-                numberHours = 7+"";
-                total.setText(valorTotal + "");
-
-
-                break;
-
-            case 8:
-                valorTotal = priceE * 8;
-                numberHours = 8+"";
-                total.setText(valorTotal + "");
-
-
-                break;
-
         }
+
+
 
     }
 

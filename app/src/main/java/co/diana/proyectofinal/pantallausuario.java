@@ -1,5 +1,6 @@
 package co.diana.proyectofinal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -11,13 +12,24 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import co.diana.proyectofinal.Clases.User;
 import co.diana.proyectofinal.pantallas.Servicios;
 import co.diana.proyectofinal.pantallas.donacionesRecogidas;
 
 public class pantallausuario extends AppCompatActivity implements View.OnClickListener{
 
-    private TextView name;
-    private String nombreEmployee,correo;
+    private TextView textViewNombre;
+    private TextView textViewCel;
+    private TextView textViewCorreo;
+    private FirebaseAuth auth;
+    private FirebaseDatabase database;
+    private User usuarioactivo;
     private ImageView servicioButton, donacionButton, recogerButton, homeButton;
 
 
@@ -26,7 +38,6 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantallausuario);
 
-        name = findViewById(R.id.nameUser);
 
         servicioButton = findViewById(R.id.serviciobutton);
         donacionButton = findViewById(R.id.donacionbutton);
@@ -39,11 +50,27 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
         homeButton.setOnClickListener(this);
 
 
-        SharedPreferences pre = getSharedPreferences("Casillero", Context.MODE_PRIVATE);
-        nombreEmployee = pre.getString("nameUser", "NO_USER");
-        correo = pre.getString("correo","NO_CORREO");
+        textViewNombre=findViewById(R.id.textViewNombre);
+        textViewCel=findViewById(R.id.textViewCel);
+        textViewCorreo=findViewById(R.id.textViewCorreo);
 
-        name.setText(nombreEmployee);
+        auth=FirebaseAuth.getInstance();
+        database=FirebaseDatabase.getInstance();
+        database.getReference().child("users").child(auth.getCurrentUser().getUid()).addValueEventListener(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        usuarioactivo=dataSnapshot.getValue(User.class);
+                        textViewNombre.setText(usuarioactivo.getNombre());
+                        textViewCorreo.setText(usuarioactivo.getCorreo());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                }
+        );
 
     }
 

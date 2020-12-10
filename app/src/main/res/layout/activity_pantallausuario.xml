@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".pantallausuario">
 
+    <TextView
+        android:id="@+id/nameService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Perfil"
+        android:textColor="#55C595"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="80dp"
@@ -72,94 +88,44 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <EditText
-        android:id="@+id/emailUser"
+    <TextView
+        android:id="@+id/textViewCorreo"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="116dp"
-        android:background="@drawable/cuadritodonar"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="a.1@gmail.com"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:text="a.1@gmail.com" />
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
     <TextView
         android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="60dp"
         android:text="Correo"
         android:textColor="#08596C"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDireccion2" />
-
-    <EditText
-        android:id="@+id/editTextDireccion3"
-        android:layout_width="145dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/cuadritodonar"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView39"
-        tools:text="Cali-Colombia" />
-
-    <TextView
-        android:id="@+id/textView39"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="130dp"
-        android:layout_marginRight="130dp"
-        android:text="Ciudad"
-        android:textColor="#08596C"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameUser" />
-
-    <EditText
-        android:id="@+id/editTextDireccion2"
-        android:layout_width="145dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/cuadritodonar"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:text="3126784356" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCel" />
 
     <TextView
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
         android:layout_marginTop="40dp"
         android:text="Celular"
         android:textColor="#08596C"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameUser" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
 
     <TextView
-        android:id="@+id/nameUser"
+        android:id="@+id/textViewNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
@@ -174,10 +140,20 @@
         android:id="@+id/imageView30"
         android:layout_width="149dp"
         android:layout_height="175dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameService"
         app:srcCompat="@drawable/noimage" />
+
+    <TextView
+        android:id="@+id/textViewCel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="3127895647"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

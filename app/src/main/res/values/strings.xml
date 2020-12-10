@@ -3,6 +3,7 @@
 
     <string-array name="lista">
 
+        <item>Hora</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -13,6 +14,17 @@
         <item>8</item>
 
     </string-array>
+
+    <string-array name="meses">
+
+        <item>Mes</item>
+        <item>Diciembre</item>
+        <item>Enero</item>
+        <item>Febrero</item>
+
+    </string-array>
+
+
 
 
 </resources>
