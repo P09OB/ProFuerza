@@ -35,7 +35,7 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
     private Button solicitar, button1,button2,button3,button4,button5,button6;
     private Spinner listHours,spinnerMeses;
     private int valorTotal, priceE;
-    private String idEmployee, numberHours,nombreEmployee;
+    private String idEmployee, numberHours,nombreEmployee,telEmployee;
     private String idUser, nameUser,direccion, servicio;
     private String fecha, mes, dia,hora;
     private FirebaseDatabase db;
@@ -90,6 +90,7 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
         idUser = pre.getString("idUser","NO_ID_USER");
         nameUser = pre.getString("nameUser","NO_USER");
         servicio = pre.getString("servicio","NO_SERVICIO");
+        telEmployee = pre.getString("telEmployee","NO_TEL");
 
 
         precio.setText("X $ "+priceE);
@@ -121,6 +122,7 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
                     DatabaseReference ref = db.getReference().child("solicitudes").child(idUser).child("EnEspera").child(id);
                     Solicitud sol = new Solicitud(
                             nombreEmployee,
+                            telEmployee,
                             idEmployee,
                             servicio,
                             idUser,

@@ -55,12 +55,12 @@ public class AdapterSolicitud extends BaseAdapter {
     public View getView(int i, View view, ViewGroup list) {
 
         LayoutInflater inflater = LayoutInflater.from(list.getContext());
-        View rowView = inflater.inflate(R.layout.rowsolicitud,null);
+        View rowView = inflater.inflate(R.layout.rowaceptado,null);
 
         Solicitud sol = solicitud.get(i);
 
-        TextView name = rowView.findViewById(R.id.nameEmployee3);
-        TextView servicio = rowView.findViewById(R.id.tipo);
+        TextView name = rowView.findViewById(R.id.nameEmployee2);
+        TextView servicio = rowView.findViewById(R.id.tipo3);
 
         name.setText(sol.getNombreTrabajador());
         servicio.setText(sol.getTipoServicio());

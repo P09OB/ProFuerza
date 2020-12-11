@@ -67,7 +67,7 @@ public class donacionesRecogidas extends AppCompatActivity implements View.OnCli
 
     private void loadData() {
 
-        db.getReference().child("donacionesAceptadas").child("ropa").orderByChild("idusuario").equalTo(idUser).addListenerForSingleValueEvent(
+        db.getReference().child("donacionesAceptadas").child("ropa").orderByChild("idusuario").equalTo(idUser).addValueEventListener(
 
                 new ValueEventListener() {
                     @Override
@@ -89,7 +89,7 @@ public class donacionesRecogidas extends AppCompatActivity implements View.OnCli
 
         );
 
-        db.getReference().child("donaciones").child("ropa").orderByChild("idusuario").equalTo(idUser).addListenerForSingleValueEvent(
+        db.getReference().child("donaciones").child("ropa").orderByChild("idusuario").equalTo(idUser).addValueEventListener(
 
                 new ValueEventListener() {
                     @Override

@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".pantallas.donacionesRecogidas">
 
+    <TextView
+        android:id="@+id/nameService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Recoleción de donaciones"
+        android:textColor="#55C595"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
         android:layout_width="0dp"
@@ -73,21 +89,57 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ListView
-        android:id="@+id/listRecogidas"
-        android:layout_width="409dp"
-        android:layout_height="306dp"
-        android:layout_marginBottom="35dp"
+        android:id="@+id/listPorRecoger"
+        android:layout_width="417dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
     <ListView
-        android:id="@+id/listPorRecoger"
-        android:layout_width="409dp"
-        android:layout_height="228dp"
-        android:layout_marginBottom="2dp"
+        android:id="@+id/listRecogidas"
+        android:layout_width="416dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView54"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="17dp"
+        android:text="Próximas en recolectar"
+        android:textColor="#08596C"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameService" />
+
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="17dp"
+        android:text="Donaciones entregadas"
+        android:textColor="#08596C"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listPorRecoger" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

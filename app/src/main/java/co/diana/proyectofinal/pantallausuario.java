@@ -1,6 +1,7 @@
 package co.diana.proyectofinal;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -23,7 +25,9 @@ import co.diana.proyectofinal.Adapter.AdapterAceptados;
 import co.diana.proyectofinal.Adapter.AdapterSolicitud;
 import co.diana.proyectofinal.Clases.Solicitud;
 import co.diana.proyectofinal.Clases.User;
+import co.diana.proyectofinal.pantallas.Inicio;
 import co.diana.proyectofinal.pantallas.Servicios;
+import co.diana.proyectofinal.pantallas.cambiarContrasenna;
 import co.diana.proyectofinal.pantallas.donacionesRecogidas;
 
 public class pantallausuario extends AppCompatActivity implements View.OnClickListener{
@@ -36,6 +40,7 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
     private ListView listRegistro;
     private AdapterSolicitud adapterAceptados;
     private String idUser;
+    private Button cerrarSesion,cambioContrasenna;
     private ImageView servicioButton, donacionButton, recogerButton, homeButton;
 
 
@@ -50,12 +55,15 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
         recogerButton = findViewById(R.id.recolectarbutton);
         homeButton = findViewById(R.id.homeButton);
         listRegistro = findViewById(R.id.listRegistro);
+        cerrarSesion = findViewById(R.id.signOut);
+        cambioContrasenna = findViewById(R.id.contrasenaButton);
 
         servicioButton.setOnClickListener(this);
         donacionButton.setOnClickListener(this);
         recogerButton.setOnClickListener(this);
         homeButton.setOnClickListener(this);
-
+        cerrarSesion.setOnClickListener(this);
+        cambioContrasenna.setOnClickListener(this);
 
         textViewNombre=findViewById(R.id.textViewNombre);
         textViewCorreo=findViewById(R.id.textViewCorreo);
@@ -88,11 +96,13 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
                 }
         );
 
+
+
     }
 
     private void loadData() {
 
-        database.getReference().child("solicitudes").child(idUser).child("registro").addListenerForSingleValueEvent(
+        database.getReference().child("solicitudes").child(idUser).child("registro").addValueEventListener(
 
                 new ValueEventListener() {
                     @Override
@@ -117,6 +127,39 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
 
         switch (view.getId()){
+
+            case R.id.contrasenaButton:
+
+                Intent password = new Intent(this, cambiarContrasenna.class);
+                startActivity(password);
+
+                break;
+
+            case R.id.signOut:
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this)
+
+                        .setTitle("Cerra sesión")
+                        .setMessage("¿Estas seguro que desea cerrar sesión?")
+                        .setNegativeButton("No",(dialog, id) ->{
+
+                            dialog.dismiss();
+
+                        } )
+
+                        .setPositiveButton("Si",(dialog, id) -> {
+
+                            auth.signOut();
+
+                            Intent i = new Intent(this, Inicio.class);
+                            startActivity(i);
+                            finish();
+
+                        });
+
+                builder.show();
+
+                break;
 
             case R.id.homeButton:
 

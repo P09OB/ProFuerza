@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="92dp"
-        android:layout_marginStart="127dp"
-        android:layout_marginLeft="127dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginLeft="34dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="34dp"
         android:layout_marginBottom="14dp"
@@ -23,21 +24,8 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="91dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="6dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@drawable/nofoto" />
-
     <TextView
-        android:id="@+id/nameEmployee"
+        android:id="@+id/nameEmployee2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -52,11 +40,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/yearsEmployee"
+        android:id="@+id/tipo3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-light"
         android:text="Años"
         android:textColor="#08596C"
@@ -64,22 +53,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/nameEmployee" />
-
-    <Button
-        android:id="@+id/buttonEmployee"
-        android:layout_width="72.71dp"
-        android:layout_height="25dp"
-        android:background="@drawable/cuadrohora"
-        android:text="Solicitar"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="9sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76" />
+        app:layout_constraintTop_toBottomOf="@+id/nameEmployee2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

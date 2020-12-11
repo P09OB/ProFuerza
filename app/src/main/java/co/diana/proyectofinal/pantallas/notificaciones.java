@@ -68,16 +68,16 @@ public class notificaciones extends AppCompatActivity implements View.OnClickLis
 
     private void loadData() {
 
-        db.getReference().child("solicitudes").child(idUser).child("aceptada").addListenerForSingleValueEvent(
+        db.getReference().child("solicitudes").child(idUser).child("aceptada").addValueEventListener(
 
                 new ValueEventListener() {
                     @Override
                     public void onDataChange( DataSnapshot data) {
 
-                        adapter.clear();
+                        adapterAceptados.clear();
                         for(DataSnapshot child : data.getChildren()){
                             Solicitud sol = child.getValue(Solicitud.class);
-                            adapter.addEmployee(sol);
+                            adapterAceptados.addEmployee(sol);
                         }
                     }
 
@@ -88,16 +88,16 @@ public class notificaciones extends AppCompatActivity implements View.OnClickLis
                 }
         );
 
-        db.getReference().child("solicitudes").child(idUser).child("EnEspera").addListenerForSingleValueEvent(
+        db.getReference().child("solicitudes").child(idUser).child("EnEspera").addValueEventListener(
 
                 new ValueEventListener() {
                     @Override
                     public void onDataChange( DataSnapshot data) {
 
-                        adapterAceptados.clear();
+                        adapter.clear();
                         for(DataSnapshot child : data.getChildren()){
                             Solicitud sol = child.getValue(Solicitud.class);
-                            adapterAceptados.addEmployee(sol);
+                            adapter.addEmployee(sol);
                         }
                     }
 
