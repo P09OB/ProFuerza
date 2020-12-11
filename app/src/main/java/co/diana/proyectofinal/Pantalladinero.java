@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 import co.diana.proyectofinal.pantallas.Servicios;
@@ -78,9 +80,25 @@ public class Pantalladinero extends AppCompatActivity implements View.OnClickLis
                         Toast.makeText(this, "Por favor rellene todos los campos", Toast.LENGTH_SHORT).show();
                     }
                     else{
+                        Date date = new Date();
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                        SimpleDateFormat fe = new SimpleDateFormat("dd-mm-yyyy");
+                        String hora = sdf.format(date);
+                        String fecha = fe.format(date);
+
+
                         String id= UUID.randomUUID().toString();
-                        Dinero dinero= new Dinero(auth.getCurrentUser().getUid(),editTextNombre.getText().toString(),id, tipo,monto,"","pendiente");
-                        database.getReference().child("donaciones").child("dinero").child(tipo+"/"+id).setValue(dinero);
+                        Donacion donacion= new Donacion(
+                                auth.getCurrentUser().getUid(),
+                                id,
+                                tipo,
+                                monto,
+                                "pendiente",
+                                editTextNombre.getText().toString(),
+                                fecha,
+                                hora);
+
+                        database.getReference().child("donaciones").child("dinero").child(tipo+"/"+id).setValue(donacion);
                         Intent intent= new Intent(this,Pantalladonacionrealizada.class);
                         startActivity(intent);
                     }
