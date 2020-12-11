@@ -139,6 +139,7 @@
         android:paddingLeft="34dp"
         android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
@@ -151,92 +152,50 @@
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/botonverde"
+                android:background="#F7F7F7"
                 android:text="7:00 Am"
-                android:textColor="#08596C" />
+                android:textColor="#55C595" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/botonverde"
+                android:background="#F7F7F7"
                 android:text="8:00 Am"
-                android:textColor="#08596C" />
+                android:textColor="#55C595" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/botonverde"
+                android:background="#F7F7F7"
                 android:text="9:00 Am"
-                android:textColor="#08596C" />
+                android:textColor="#55C595" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/botonverde"
+                android:background="#F7F7F7"
                 android:text="10:00 Am"
-                android:textColor="#08596C" />
+                android:textColor="#55C595" />
 
             <Button
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/botonverde"
+                android:background="#F7F7F7"
                 android:text="11:00 Am"
-                android:textColor="#08596C" />
+                android:textColor="#55C595" />
 
             <Button
                 android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/botonverde"
+                android:background="#F7F7F7"
                 android:text="12:00 Pm"
-                android:textColor="#08596C" />
+                android:textColor="#55C595" />
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/botonverde"
-                android:text="1:00 Pm"
-                android:textColor="#08596C" />
-
-            <Button
-                android:id="@+id/button8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/botonverde"
-                android:text="2:00 Pm"
-                android:textColor="#08596C" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/botonverde"
-                android:text="3:00 Pm"
-                android:textColor="#08596C" />
-
-            <Button
-                android:id="@+id/button9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/botonverde"
-                android:text="4:00 Pm"
-                android:textColor="#08596C" />
-
-            <Button
-                android:id="@+id/button10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/botonverde"
-                android:text="5:00 Pm"
-                android:textColor="#08596C" />
         </LinearLayout>
 
     </HorizontalScrollView>

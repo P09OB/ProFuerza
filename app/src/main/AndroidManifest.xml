@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".pantallas.donacionesRecogidas"></activity>
+        <activity android:name=".pantallas.donacionesRecogidas" />
         <activity android:name=".pantallas.notificaciones" />
         <activity android:name=".pantallausuario" />
         <activity android:name=".pantallas.cambioContrasenna" />

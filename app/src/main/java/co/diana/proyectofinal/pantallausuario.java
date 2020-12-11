@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,6 +19,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import co.diana.proyectofinal.Adapter.AdapterAceptados;
+import co.diana.proyectofinal.Adapter.AdapterSolicitud;
+import co.diana.proyectofinal.Clases.Solicitud;
 import co.diana.proyectofinal.Clases.User;
 import co.diana.proyectofinal.pantallas.Servicios;
 import co.diana.proyectofinal.pantallas.donacionesRecogidas;
@@ -30,6 +34,9 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth auth;
     private FirebaseDatabase database;
     private User usuarioactivo;
+    private ListView listRegistro;
+    private AdapterSolicitud adapterAceptados;
+    private String idUser;
     private ImageView servicioButton, donacionButton, recogerButton, homeButton;
 
 
@@ -43,6 +50,7 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
         donacionButton = findViewById(R.id.donacionbutton);
         recogerButton = findViewById(R.id.recolectarbutton);
         homeButton = findViewById(R.id.homeButton);
+        listRegistro = findViewById(R.id.listRegistro);
 
         servicioButton.setOnClickListener(this);
         donacionButton.setOnClickListener(this);
@@ -53,6 +61,16 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
         textViewNombre=findViewById(R.id.textViewNombre);
         textViewCel=findViewById(R.id.textViewCel);
         textViewCorreo=findViewById(R.id.textViewCorreo);
+
+        SharedPreferences pre = getSharedPreferences("Casillero", Context.MODE_PRIVATE);
+        idUser = pre.getString("idUser","NO_ID_USER");
+
+        database = FirebaseDatabase.getInstance();
+
+        adapterAceptados = new AdapterSolicitud();
+        listRegistro.setAdapter(adapterAceptados);
+        loadData();
+
 
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
@@ -72,6 +90,29 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
                 }
         );
 
+    }
+
+    private void loadData() {
+
+        database.getReference().child("solicitudes").child(idUser).child("registro").addListenerForSingleValueEvent(
+
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange( DataSnapshot data) {
+
+                        adapterAceptados.clear();
+                        for(DataSnapshot child : data.getChildren()){
+                            Solicitud sol = child.getValue(Solicitud.class);
+                            adapterAceptados.addEmployee(sol);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled( DatabaseError error) {
+
+                    }
+                }
+        );
     }
 
     @Override

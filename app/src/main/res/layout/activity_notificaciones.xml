@@ -7,6 +7,7 @@
     tools:context=".pantallas.notificaciones">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:background="#F1F1F1"
@@ -70,4 +71,24 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/serviciostrok" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/listEspera"
+        android:layout_width="411dp"
+        android:layout_height="252dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listAceptados"
+        android:layout_width="415dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listEspera" />
 </androidx.constraintlayout.widget.ConstraintLayout>

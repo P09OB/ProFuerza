@@ -65,7 +65,7 @@ public class Servicios extends AppCompatActivity implements View.OnClickListener
 
             case R.id.varios:
 
-                i.putExtra("service","varios");
+                i.putExtra("service","oficiosVarios");
                 startActivity(i);
                 finish();
 

@@ -3,6 +3,7 @@ package co.diana.proyectofinal.pantallas;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,12 +32,12 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
 
     private TextView name, description, total, precio;
     private EditText address, diaText;
-    private Button solicitar;
+    private Button solicitar, button1,button2,button3,button4,button5,button6;
     private Spinner listHours,spinnerMeses;
     private int valorTotal, priceE;
     private String idEmployee, numberHours,nombreEmployee;
     private String idUser, nameUser,direccion, servicio;
-    private String fecha, mes, dia;
+    private String fecha, mes, dia,hora;
     private FirebaseDatabase db;
 
     @Override
@@ -48,17 +50,29 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
         precio = findViewById(R.id.precio);
         total = findViewById(R.id.total);
         diaText = findViewById(R.id.editdia);
-
         address = findViewById(R.id.address);
-
         listHours = findViewById(R.id.spinnerList);
         spinnerMeses = findViewById(R.id.spinnerMeses);
         solicitar = findViewById(R.id.buttonSolicitar);
+
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
+        button5 = findViewById(R.id.button5);
+        button6 = findViewById(R.id.button6);
 
         db = FirebaseDatabase.getInstance();
 
 
         solicitar.setOnClickListener(this);
+        button1.setOnClickListener(this);
+        button2.setOnClickListener(this);
+        button3.setOnClickListener(this);
+        button4.setOnClickListener(this);
+        button5.setOnClickListener(this);
+        button6.setOnClickListener(this);
+
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.lista, android.R.layout.simple_list_item_1);
         listHours.setAdapter(adapter);
@@ -88,43 +102,120 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onClick(View view) {
 
-        direccion = address.getText().toString();
-        dia = diaText.getText().toString();
+        switch(view.getId()){
 
-        if(direccion.equals("")|| dia.equals("")|| mes.equals("") || numberHours.equals(0) || valorTotal <=0 ){
+            case R.id.buttonSolicitar:
 
-            Toast.makeText(this,"Verifique que todos los campos sean correctos",Toast.LENGTH_LONG).show();
+                direccion = address.getText().toString();
+                dia = diaText.getText().toString();
 
-        } else {
+                if(direccion.equals("")|| dia.equals("")|| mes.equals("") || numberHours.equals(0) || valorTotal <=0 ){
 
-            fecha = dia+"/"+mes;
+                    Toast.makeText(this,"Verifique que todos los campos sean correctos",Toast.LENGTH_LONG).show();
 
-            String id = db.getReference().child("solicitudes").child(idUser).push().getKey();
-            DatabaseReference ref = db.getReference().child("solicitudes").child(idUser).child("EnEspera").child(id);
-            Solicitud sol = new Solicitud(
-                    nombreEmployee,
-                    idEmployee,
-                    servicio,
-                    idUser,
-                    nameUser,
-                    direccion,
-                    fecha,
-                    "8:00Am",
-                    numberHours,
-                    valorTotal
+                } else {
+
+                    fecha = dia+"/"+mes;
+
+                    String id = db.getReference().child("solicitudes").child(idUser).push().getKey();
+                    DatabaseReference ref = db.getReference().child("solicitudes").child(idUser).child("EnEspera").child(id);
+                    Solicitud sol = new Solicitud(
+                            nombreEmployee,
+                            idEmployee,
+                            servicio,
+                            idUser,
+                            nameUser,
+                            direccion,
+                            fecha,
+                            hora,
+                            numberHours,
+                            valorTotal
+                    );
+
+                    ref.setValue(sol);
+
+                    Intent i = new Intent(this, solicitudRealizada.class);
+                    startActivity(i);
 
 
+                }
 
+                break;
 
-            );
+            case R.id.button1:
+                hora = "7:00Am";
+                button1.setBackgroundColor(Color.parseColor("#08596C"));
 
-            ref.setValue(sol);
+                button2.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button3.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button4.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button5.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button6.setBackgroundColor(Color.parseColor("#F7F7F7"));
 
-            Intent i = new Intent(this, solicitudRealizada.class);
-            startActivity(i);
+                break;
 
+            case R.id.button2:
+                hora = "8:00Am";
+                button2.setBackgroundColor(Color.parseColor("#08596C"));
 
+                button1.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button3.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button4.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button5.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button6.setBackgroundColor(Color.parseColor("#F7F7F7"));
+
+                break;
+
+            case R.id.button3:
+                hora = "9:00Am";
+                button3.setBackgroundColor(Color.parseColor("#08596C"));
+
+                button1.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button2.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button4.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button5.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button6.setBackgroundColor(Color.parseColor("#F7F7F7"));
+
+                break;
+
+            case R.id.button4:
+                hora = "10:00Am";
+                button4.setBackgroundColor(Color.parseColor("#08596C"));
+
+                button1.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button2.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button3.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button5.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button6.setBackgroundColor(Color.parseColor("#F7F7F7"));
+
+                break;
+
+            case R.id.button5:
+                hora = "11:00Am";
+                button5.setBackgroundColor(Color.parseColor("#08596C"));
+
+                button1.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button2.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button3.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button4.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button6.setBackgroundColor(Color.parseColor("#F7F7F7"));
+
+                break;
+
+            case R.id.button6:
+                hora = "12:00Am";
+                button6.setBackgroundColor(Color.parseColor("#08596C"));
+
+                button1.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button2.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button3.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button4.setBackgroundColor(Color.parseColor("#F7F7F7"));
+                button5.setBackgroundColor(Color.parseColor("#F7F7F7"));
+
+                break;
         }
+
+
 
 
     }
@@ -217,29 +308,19 @@ public class InfoEmployee extends AppCompatActivity implements AdapterView.OnIte
                 switch (i) {
 
                     case 0:
-
                         mes = "";
-
-
                      break;
 
                     case 1:
                         mes = "Diciembre";
-
                         break;
 
                     case 2:
-
                         mes = "Enero";
-
-
                         break;
 
                     case 3:
-
                         mes = "Febrero";
-
-
                         break;
 
                 }
