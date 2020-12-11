@@ -58,6 +58,15 @@ public class Pantallaropa extends AppCompatActivity implements View.OnClickListe
         perfilButton.setOnClickListener(this);
         homeButton.setOnClickListener(this);
 
+        editText1mujer.setEnabled(false);
+        editText2niña.setEnabled(false);
+        editText3hombre.setEnabled(false);
+        editText4niño.setEnabled(false);
+
+        checkBox1mujer.setOnClickListener(this);
+        checkBox2niña.setOnClickListener(this);
+        checkBox3hombre.setOnClickListener(this);
+        checkBox4niño.setOnClickListener(this);
 
 
 
@@ -122,6 +131,46 @@ public class Pantallaropa extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         switch (view.getId()){
+
+            case R.id.checkBox1:
+                if (checkBox1mujer.isChecked()) {
+                    editText1mujer.setEnabled(true);
+                } else {
+                    editText1mujer.setEnabled(false);
+                }
+                break;
+
+            case R.id.checkBox2:
+
+                if(checkBox2niña.isChecked()){
+                    editText2niña.setEnabled(true);
+
+                } else {
+                    editText2niña.setEnabled(false);
+                }
+
+                break;
+
+            case R.id.checkBox3:
+                if(checkBox3hombre.isChecked()){
+                    editText3hombre.setEnabled(true);
+
+                }else {
+                    editText3hombre.setEnabled(false);
+                }
+
+                break;
+
+            case R.id.checkBox4:
+                if(checkBox4niño.isChecked()){
+                    editText4niño.setEnabled(true);
+
+                } else {
+                    editText4niño.setEnabled(false);
+                }
+
+
+                break;
 
             case R.id.homeButton:
 

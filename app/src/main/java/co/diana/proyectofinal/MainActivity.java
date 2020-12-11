@@ -21,6 +21,7 @@ import co.diana.proyectofinal.Clases.User;
 import co.diana.proyectofinal.pantallas.Inicio;
 import co.diana.proyectofinal.pantallas.Servicios;
 import co.diana.proyectofinal.pantallas.donacionesRecogidas;
+import co.diana.proyectofinal.pantallas.intro;
 import co.diana.proyectofinal.pantallas.notificaciones;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void goToLgin() {
 
-        Intent i = new Intent(this, Inicio.class);
+        Intent i = new Intent(this, intro.class);
         startActivity(i);
         finish();
     }

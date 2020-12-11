@@ -65,10 +65,10 @@ public class AdapterRecogida extends BaseAdapter {
         TextView hora = rowView.findViewById(R.id.hora);
         TextView fecha = rowView.findViewById(R.id.fecha);
 
-        cantidad2.setText(donar.getInforopa()+"");
-        estado.setText(donar.getEstado());
-        hora.setText(donar.getFechaderecogida());
-        fecha.setText(donar.getHoraderecogida());
+        cantidad2.setText("Cantidad: "+donar.getInforopa()+"");
+        estado.setText("Estado: "+donar.getEstado());
+        hora.setText("Fecha: "+donar.getFechaderecogida());
+        fecha.setText("Hora: "+donar.getHoraderecogida());
         tipo.setText("Ropa");
 
         return rowView;
