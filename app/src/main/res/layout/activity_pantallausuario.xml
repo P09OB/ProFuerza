@@ -138,11 +138,14 @@
 
     <ListView
         android:id="@+id/listRegistro"
-        android:layout_width="411dp"
-        android:layout_height="167dp"
+        android:layout_width="412dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView49"
+        app:layout_constraintVertical_bias="0.49" />
 
     <TextView
         android:id="@+id/textView49"
@@ -151,16 +154,13 @@
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="26dp"
         android:text="Registro de servicios"
         android:textColor="#08596C"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/listRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contrasenaButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/contrasenaButton" />
 
     <Button
         android:id="@+id/signOut"
