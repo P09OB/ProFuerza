@@ -7,6 +7,7 @@
     tools:context=".pantallas.donacionesRecogidas">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:background="#F1F1F1"
@@ -70,5 +71,23 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/serviciostrok" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/listRecogidas"
+        android:layout_width="409dp"
+        android:layout_height="306dp"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listPorRecoger"
+        android:layout_width="409dp"
+        android:layout_height="228dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

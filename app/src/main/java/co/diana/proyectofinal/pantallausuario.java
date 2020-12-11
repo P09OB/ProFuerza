@@ -29,7 +29,6 @@ import co.diana.proyectofinal.pantallas.donacionesRecogidas;
 public class pantallausuario extends AppCompatActivity implements View.OnClickListener{
 
     private TextView textViewNombre;
-    private TextView textViewCel;
     private TextView textViewCorreo;
     private FirebaseAuth auth;
     private FirebaseDatabase database;
@@ -59,7 +58,6 @@ public class pantallausuario extends AppCompatActivity implements View.OnClickLi
 
 
         textViewNombre=findViewById(R.id.textViewNombre);
-        textViewCel=findViewById(R.id.textViewCel);
         textViewCorreo=findViewById(R.id.textViewCorreo);
 
         SharedPreferences pre = getSharedPreferences("Casillero", Context.MODE_PRIVATE);
